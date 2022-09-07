@@ -13,12 +13,12 @@ func main() {
 	e := echo.New()
 
 	e.GET("/", func(c echo.Context) error {
-		digits, _ := strconv.Atoi(c.QueryParam("digits"))
-		if digits < 1 {
-			digits = 1
+		iterations, _ := strconv.Atoi(c.QueryParam("iterations"))
+		if iterations < 1 {
+			iterations = 1
 		}
 
-		return c.String(http.StatusOK, fmt.Sprintf("%f", pi(digits)))
+		return c.String(http.StatusOK, fmt.Sprintf("%f", pi(iterations)))
 	})
 
 	e.Logger.Fatal(e.Start(":3000"))
